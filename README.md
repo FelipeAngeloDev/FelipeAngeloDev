@@ -78,7 +78,7 @@ Experiência prática no desenvolvimento de sistemas web, bots e automações, s
 ## 🌐 Conexões
 
 <p align="center">
-  <a href="https://www.instagram.com/[SEU-INSTAGRAM](https://www.instagram.com/fpzin.dev/)">
+  <a href="https://www.instagram.com/[SEU-INSTAGRAM](https://www.instagram.com/fpzin.dev)">
     <img src="https://img.shields.io/badge/Instagram-111827?style=for-the-badge&logo=instagram&logoColor=white"/>
   </a>
   <a href="https://www.youtube.com/SEU-CANAL">
