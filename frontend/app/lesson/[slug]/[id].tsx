@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator, Alert, Platform } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ArrowLeft, CheckCircle2, XCircle } from 'lucide-react-native';
 import { apiFetch, useAuth } from '../../../src/contexts/AuthContext';
@@ -51,11 +51,17 @@ export default function LessonScreen() {
       }, token);
       if (r.ok) {
         const data = await r.json();
-        Alert.alert(
-          'Lição concluída!',
-          `+${data.xp_gained || 0} XP\nXP total: ${data.xp}\nSequência: ${data.streak} dia(s)`,
-          [{ text: 'Continuar', onPress: () => router.back() }]
-        );
+        const msg = `Lição concluída!\n+${data.xp_gained || 0} XP\nXP total: ${data.xp}\nSequência: ${data.streak} dia(s)`;
+        if (Platform.OS === 'web') {
+          if (typeof window !== 'undefined') window.alert(msg);
+          router.back();
+        } else {
+          Alert.alert(
+            'Lição concluída!',
+            `+${data.xp_gained || 0} XP\nXP total: ${data.xp}\nSequência: ${data.streak} dia(s)`,
+            [{ text: 'Continuar', onPress: () => router.back() }]
+          );
+        }
       } else {
         router.back();
       }
