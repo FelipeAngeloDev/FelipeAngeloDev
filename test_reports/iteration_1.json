@@ -1,0 +1,52 @@
+{
+  "summary": "Tested CodeMaster (Expo + FastAPI) — Portuguese programming education app. Backend: 14/14 pytest passed (courses, lessons, auth gating, /auth/me, /progress, /progress/complete with XP=20 first call + 0 second call + streak>=1, tutor Claude Sonnet 4.5, tutor GPT-5.2, logout invalidates session). Frontend (mobile viewport 390x844): login screen renders 'Continuar com Google' (testID google-auth-button); after seeding session_token in localStorage, navigation to / shows tabs with all 4 course-card-{slug} testIDs and streak/XP stats; course detail shows lesson-py-1; lesson screen renders theory + exercise with opt-0..opt-3, submit-answer, complete-lesson; completing a lesson updates XP (Profile shows 20 XP / 1 lição, Progress tab shows 6% overall and per-course bars); Tutor IA tab has model-claude/model-gpt toggle and chat input; Profile shows user info + logout-button. No red screens, no 500s.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "Lesson completion navigation",
+        "issue": "After tapping complete-lesson, the route stayed on /lesson/python/py-1 instead of auto-navigating back to course or home. Backend was called successfully (XP credited 20, lesson recorded), but user has to navigate manually. UX nit, not blocking.",
+        "affected_testIDs": ["complete-lesson"]
+      }
+    ],
+    "design_issues": [
+      {
+        "screen": "global",
+        "issues": [
+          "Console warning: '\"shadow*\" style props are deprecated. Use \"boxShadow\".' (RN Web deprecation, replace shadowColor/Offset/Opacity/Radius with boxShadow on web).",
+          "Console warning: 'props.pointerEvents is deprecated. Use style.pointerEvents'.",
+          "Expo dependency mismatch warnings on startup: @react-native-async-storage/async-storage 3.0.2 vs expected 2.2.0; expo-linking 55.0.15 vs ~8.0.12; expo-secure-store 55.0.13 vs ~15.0.8; expo-web-browser 55.0.15 vs ~15.0.11; react-native-svg 15.15.4 vs 15.12.1. Run 'npx expo install --check'."
+        ]
+      }
+    ],
+    "react_native_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_codemaster_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Optional: after complete-lesson tap, router.back() or router.replace(`/course/${slug}`) so user sees updated progress immediately.",
+    "Optional: replace deprecated shadow* style props with boxShadow for web; replace props.pointerEvents with style.pointerEvents.",
+    "Optional: align Expo SDK package versions via 'npx expo install --check'."
+  ],
+  "critical_code_review_comments": [
+    "server.py: logger is referenced inside tutor_chat exception handler but defined after app.include_router. Works because exception path is hit at runtime only, but logger should be initialised at top of file for clarity/consistency.",
+    "server.py: /api/auth/session sets session cookie, but frontend (RN/Expo) primarily uses Authorization header; cookie path is OK and not breaking.",
+    "Streak logic resets to 1 only when days_diff > 1 — correct.",
+    "MongoDB _id is correctly excluded from all read endpoints via projection {'_id': 0}."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_codemaster_api.py (created)"
+  ],
+  "success_rate": {"backend": "100% (14/14)", "frontend": "100% on flows tested"},
+  "seed_data_creation": "Created two test sessions via mongosh (test_session_1778361036923 used for backend tests then logged out; test_session_1778361080715 used for frontend) with TEST_-prefixed emails per cleanup convention.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Use /app/backend/tests/test_codemaster_api.py with EXPO_PUBLIC_BACKEND_URL and a fresh TEST_TOKEN created via the mongosh script in /app/auth_testing.md. Logout test invalidates the token, so always create a new token per run. Frontend: seed localStorage.setItem('session_token', '<token>') on the same origin then visit '/' to bypass Google OAuth. testIDs verified: google-auth-button, course-card-{python|javascript|html-css|java}, lesson-py-1 (and analogous), opt-0..opt-3, submit-answer, complete-lesson, model-claude, model-gpt, logout-button.",
+  "rca_of_issue": "N/A — no blocking bugs found. App is functioning end-to-end."
+}
