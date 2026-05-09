@@ -1,0 +1,116 @@
+{
+  "theme": "DARK",
+  "archetype": "Hybrid: Gamified Tech (Swiss High-Contrast Foundation + Vibrant Play Accents)",
+  "emotional_tone": "Professional yet highly motivating, turning coding into an addictive game while maintaining readability for complex concepts.",
+  "colors": {
+    "background": {
+      "default": "#0D1117",
+      "surface": "#161B22",
+      "surface_elevated": "#1E293B",
+      "overlay": "rgba(0,0,0,0.6)"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#94A3B8",
+      "disabled": "#475569"
+    },
+    "brand": {
+      "primary": "#38BDF8",
+      "primary_hover": "#0EA5E9",
+      "primary_transparent": "rgba(56, 189, 248, 0.15)"
+    },
+    "accent": {
+      "success": "#2ACC15",
+      "success_glow": "rgba(42, 204, 21, 0.3)",
+      "warning": "#F59E0B",
+      "streak": "#F97316",
+      "error": "#EF4444"
+    },
+    "syntax": {
+      "keyword": "#FF7B72",
+      "function": "#D2A8FF",
+      "string": "#A5D6FF",
+      "comment": "#8B949E",
+      "variable": "#79C0FF",
+      "background": "#0D1117"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Manrope, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "code": "JetBrains Mono, monospace"
+    },
+    "scales": {
+      "h1": "text-4xl font-black tracking-tight leading-tight",
+      "h2": "text-3xl font-bold tracking-tight leading-snug",
+      "h3": "text-2xl font-bold tracking-tight",
+      "h4": "text-xl font-bold tracking-tight",
+      "body_large": "text-lg font-normal leading-relaxed",
+      "body_base": "text-base font-normal leading-relaxed",
+      "body_small": "text-sm font-medium text-slate-400",
+      "overline": "text-xs font-bold tracking-[0.2em] uppercase",
+      "code_block": "text-sm font-mono leading-relaxed"
+    }
+  },
+  "layout_spacing": {
+    "screen_padding": "p-6",
+    "section_gap": "gap-8",
+    "item_gap": "gap-4",
+    "touch_target_min": "h-14",
+    "border_radius": {
+      "card": "rounded-3xl",
+      "button": "rounded-2xl",
+      "input": "rounded-xl",
+      "badge": "rounded-full"
+    }
+  },
+  "surfaces_and_micro_themes": {
+    "cards": {
+      "course_card": "bg-[#161B22] border border-white/5 rounded-3xl p-6 shadow-lg",
+      "lesson_card": "bg-[#1E293B] border border-white/10 rounded-2xl p-4 flex-row items-center",
+      "code_editor_pane": "bg-[#0D1117] border border-[#1E293B] rounded-2xl overflow-hidden"
+    },
+    "buttons": {
+      "primary": "bg-[#38BDF8] active:bg-[#0EA5E9] h-14 rounded-2xl flex items-center justify-center font-bold text-white text-lg shadow-[0_4px_14px_0_rgba(56,189,248,0.39)]",
+      "secondary": "bg-[#1E293B] active:bg-white/10 h-14 rounded-2xl flex items-center justify-center font-bold text-white text-lg",
+      "success_action": "bg-[#2ACC15] active:bg-[#15803d] h-14 rounded-2xl flex items-center justify-center font-bold text-white text-lg shadow-[0_4px_14px_0_rgba(42,204,21,0.39)]"
+    },
+    "navigation": {
+      "bottom_tab": "bg-[#0D1117] border-t border-white/10 pt-4 pb-8 px-6 flex-row justify-between items-center",
+      "header": "bg-[#0D1117] pb-4 pt-12 px-6 flex-row items-center justify-between"
+    }
+  },
+  "gamification_mechanics": {
+    "progress_bar": "h-3 bg-[#1E293B] rounded-full overflow-hidden w-full",
+    "progress_fill": "h-full bg-[#2ACC15] rounded-full",
+    "streak_badge": "flex-row items-center gap-1 bg-white/5 px-3 py-1.5 rounded-full border border-white/10",
+    "xp_display": "text-[#38BDF8] font-black text-xl"
+  },
+  "media": {
+    "icons_library": "lucide-react-native",
+    "images": {
+      "onboarding_abstract": {
+        "url": "https://images.unsplash.com/photo-1760976180663-946ff68fa64c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMGNvbG9yZnVsJTIwM2QlMjBzaGFwZXMlMjBkYXJrfGVufDB8fHx8MTc3ODM2MDIzMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract neon shapes to use as a background layer in onboarding or hero sections"
+      },
+      "course_placeholder_1": {
+        "url": "https://images.unsplash.com/photo-1753998943619-b9cd910887e5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHw0fHxwcm9ncmFtbWluZyUyMGNvZGUlMjBzY3JlZW4lMjBkYXJrfGVufDB8fHx8MTc3ODM2MDIzM3ww&ixlib=rb-4.1.0&q=85",
+        "description": "Background for Web Development / HTML track"
+      },
+      "course_placeholder_2": {
+        "url": "https://images.unsplash.com/photo-1733412505442-36cfa59a4240?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwyfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBzY3JlZW4lMjBkYXJrfGVufDB8fHx8MTc3ODM2MDIzM3ww&ixlib=rb-4.1.0&q=85",
+        "description": "Background for Python / Backend track"
+      }
+    }
+  },
+  "components_instructions": {
+    "login_screen": "Use a dark, immersive background with the onboarding_abstract image at 30% opacity. Large, chunky Google Auth button at the bottom.",
+    "home_screen": "Top header must show Streak (flame icon + orange text) and XP. Course tracks presented as large bento-box cards. Avoid equal grids; use 1 full-width featured card, then 2 column cards.",
+    "lesson_screen": "The code pane must consume ~60% of the screen (darker `#0D1117` background). The theory/instructions in `#161B22` pane above it. Use floating pill-shaped AI autocomplete suggestions.",
+    "ai_tutor_screen": "Chat interface. User bubbles: `#1E293B`. AI bubbles: `#38BDF8` with dark text. Include a model selector dropdown (Claude 3.5 / GPT-4) styled as a sleek native picker.",
+    "code_editor": "Must use 'JetBrains Mono'. Must have line numbers styled in muted `#475569`. Action button 'Run Code' must pulse or have high contrast (`#2ACC15`)."
+  },
+  "testing_attributes": "All interactive elements (buttons, inputs, tabs, course cards) must include 'data-testid' properties formatted in kebab-case (e.g., 'start-lesson-button', 'google-auth-button').",
+  "nativewind_compatibility": "Ensure class names used here map perfectly to NativeWind utilities. No pseudo-classes like hover: unless supported; use active: for tap feedback."
+}
